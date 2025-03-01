@@ -13,30 +13,32 @@ export default function BlogList({ limit }: { limit?: number }) {
 
       {posts.map((post) => (
         <Card key={post.slug} className=" bg-orange-300">
-          <CardHeader>
-            <CardTitle>{post.metadata.title}</CardTitle>
-            <CardDescription>{post.metadata.publishedAt}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>{post.metadata.description}</p>
-          </CardContent>
-          <CardFooter>
-            {post.metadata.tags?.map((tag: string) => (
-              <span key={tag} className="bg-blue-100 text-blue-600 text-xs font-medium px-2 py-1 rounded-full">
-                #{tag}
-              </span>
-            ))}
-            {limit && (
-              <div className="flex justify-center my-6">
-                <Link
-                  href="/blogs"
-                  className="px-6 py-3 text-white text-lg font-semibold bg-orange-500 rounded-full shadow-md hover:bg-orange-600 transition-colors"
-                >
-                  查看更多
-                </Link>
-              </div>
-            )}
-          </CardFooter>
+          <Link href={`/blogs/${post.slug}`}>
+            <CardHeader>
+              <CardTitle>{post.metadata.title}</CardTitle>
+              <CardDescription>{post.metadata.publishedAt}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>{post.metadata.description}</p>
+            </CardContent>
+            <CardFooter>
+              {post.metadata.tags?.map((tag: string) => (
+                <span key={tag} className="bg-blue-100 text-blue-600 text-xs font-medium px-2 py-1 rounded-full">
+                  #{tag}
+                </span>
+              ))}
+              {limit && (
+                <div className="flex justify-center my-6">
+                  <Link
+                    href="/blogs"
+                    className="px-6 py-3 text-white text-lg font-semibold bg-orange-500 rounded-full shadow-md hover:bg-orange-600 transition-colors"
+                  >
+                    查看更多
+                  </Link>
+                </div>
+              )}
+            </CardFooter>
+          </Link>
         </Card>
       ))}
     </section>

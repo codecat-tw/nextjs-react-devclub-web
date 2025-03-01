@@ -1,6 +1,7 @@
 import typography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from 'tailwindcss-animate';
+
 export default {
   darkMode: ["class"],
   content: [
@@ -11,45 +12,72 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        // Base colors
+        background: '#ffffff',
+        foreground: '#0a0a0a',
+
+        // UI component colors
         card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))'
+          DEFAULT: '#ffffff',
+          foreground: '#0a0a0a'
         },
         popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))'
+          DEFAULT: '#ffffff',
+          foreground: '#0a0a0a'
         },
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))'
+          DEFAULT: '#171717',
+          foreground: '#fafafa'
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))'
+          DEFAULT: '#f5f5f5',
+          foreground: '#171717'
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))'
+          DEFAULT: '#f5f5f5',
+          foreground: '#737373'
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))'
+          DEFAULT: '#f5f5f5',
+          foreground: '#171717'
         },
         destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))'
+          DEFAULT: '#ef4444',
+          foreground: '#fafafa'
         },
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
+
+        // Utility colors
+        border: '#e5e7eb',
+        input: '#e5e7eb',
+        ring: '#0a0a0a',
+
+        // Chart colors
         chart: {
-          '1': 'hsl(var(--chart-1))',
-          '2': 'hsl(var(--chart-2))',
-          '3': 'hsl(var(--chart-3))',
-          '4': 'hsl(var(--chart-4))',
-          '5': 'hsl(var(--chart-5))'
+          '1': '#f97316', // orange-500
+          '2': '#0ea5e9', // sky-500
+          '3': '#14b8a6', // teal-500
+          '4': '#eab308', // yellow-500
+          '5': '#f43f5e'  // rose-500
+        },
+
+        // Additional colors from the codebase
+        gray: {
+          300: '#d1d5db',
+          700: '#374151',
+          800: '#1f2937',
+          900: '#111827'
+        },
+        orange: {
+          100: '#ffedd5',
+          200: '#fedaaa',
+          300: '#fdba74',
+          500: '#f97316',
+          600: '#ea580c',
+          900: '#7c2d12'
+        },
+        blue: {
+          100: '#dbeafe',
+          600: '#2563eb'
         }
       },
       borderRadius: {
