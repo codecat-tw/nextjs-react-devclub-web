@@ -147,7 +147,7 @@ export default function Home() {
         >
           {/*左側導航*/}
           <div className="w-48 p-8 flex flex-col gap-4 text-white">
-            {['Next.js 讀書會', '簡介', '公告'].map((text, index) => {
+            {['讀書會', '簡介', '公告'].map((text, index) => {
               const slideNumber = index + 1;
               return (
                 <button
