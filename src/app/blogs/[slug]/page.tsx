@@ -24,8 +24,8 @@ export default function Page(props: { params: Promise<{ slug: string }> }) {
   const post = getPostBySlug(params.slug);
 
   return (
-    <div className="flex justify-center flex-grow bg-secondary text-foreground">
-      <div className="flex flex-col items-center flex-grow">
+    <div className="flex justify-center grow bg-secondary text-foreground">
+      <div className="flex flex-col items-center grow">
         <div className="mx-auto sm:rounded-xl sm:mt-4 sm:mb-2 w-[60rem]">
           <Link href="/blogs">
             <Button className="bg-primary w-auto">
@@ -33,7 +33,7 @@ export default function Page(props: { params: Promise<{ slug: string }> }) {
             </Button>
           </Link>
         </div>
-        <div className="flex-grow mx-auto p-4 bg-background sm:rounded-xl sm:m-2 w-[60rem] border-2 border-gray-800">
+        <div className="grow mx-auto p-4 bg-background sm:rounded-xl sm:m-2 w-[60rem] border-2 border-gray-800">
           <div>
             <h1 className="text-3xl font-bold text-center text-gray-800">{post.metadata.title}</h1>
 
@@ -61,7 +61,7 @@ export default function Page(props: { params: Promise<{ slug: string }> }) {
             </div>
           </div>
 
-          <div className="prose mt-4 prose-headings:text-gray-800 prose-a:text-orange-500 hover:prose-a:text-orange-500/80">
+          <div className="prose mt-4 prose-headings:text-gray-800 prose-a:text-orange-500 prose-a:hover:text-orange-500/80">
             <ReactMarkdown>{post.content}</ReactMarkdown>
           </div>
         </div>
