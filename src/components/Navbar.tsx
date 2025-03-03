@@ -13,7 +13,7 @@ export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className="fixed left-0 right-0 top-0 z-50 mx-auto bg-transparent backdrop-blur-sm w-full">
+    <nav className="fixed left-0 top-0 z-50 w-screen mx-auto bg-transparent backdrop-blur-sm w-full">
       <div className="container mx-auto h-16 flex flex-wrap items-center justify-between px-4 py-2">
         <Link href={'/'} className="text-3xl font-semibold text-white">
           Next.js / React 讀書會
