@@ -86,7 +86,7 @@ export default function Home() {
                             <button
                                 key={text}
                                 onClick={() => scrollToSlide(slideNumber)}
-                                className={`text-left transition-colors ${currentSlide === slideNumber ? 'text-white' : 'text-gray-500 hover:text-gray-300'}`}
+                                className={`text-left transition-colors cursor-pointer ${currentSlide === slideNumber ? 'text-white' : 'text-gray-500 hover:text-gray-300'}`}
                             >
                                 {text}
                             </button>
