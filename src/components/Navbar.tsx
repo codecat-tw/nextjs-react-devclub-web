@@ -13,16 +13,16 @@ export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className="sticky left-0 right-0 top-0 z-50 mx-auto bg-orange-200 w-full">
+    <nav className="fixed left-0 right-0 top-0 z-50 mx-auto bg-transparent backdrop-blur-sm w-full">
       <div className="container mx-auto h-16 flex flex-wrap items-center justify-between px-4 py-2">
-        <Link href={'/'} className="text-3xl font-semibold text-black">
+        <Link href={'/'} className="text-3xl font-semibold text-white">
           Next.js / React 讀書會
         </Link>
         <div className="hidden md:block md:w-auto">
           <ul className="mt-0 flex p-4 md:flex-row md:space-x-8 md:p-0">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <Link href={link.path} className="block rounded-sm py-2 pl-3 pr-4 text-gray-900 hover:text-gray-500 sm:text-xl md:p-0">
+                <Link href={link.path} className="block rounded-sm py-2 pl-3 pr-4 text-gray-100 hover:text-gray-300 sm:text-xl md:p-0">
                   {link.title}
                 </Link>
               </li>
