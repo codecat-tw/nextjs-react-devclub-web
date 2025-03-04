@@ -12,30 +12,40 @@ const navLinks = [
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [textColor, setTextColor] = useState('text-black'); // 預設黑色字（適合白色背景）
-  const pathname = usePathname(); // 取得當前頁面路由
+  const [textColor, setTextColor] = useState('text-black');
+  const pathname = usePathname();
 
-  // 根據不同頁面背景設定 Navbar 文字顏色
   useEffect(() => {
-    const darkPages = ['/','/home']; 
-    if (darkPages.includes(pathname)) {
-      setTextColor('text-white');
-    } else {
-      setTextColor('text-black');
-    }
+    const darkPages = ['/', '/home'];
+    setTextColor(darkPages.includes(pathname) ? 'text-white' : 'text-black');
   }, [pathname]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setNavbarOpen(false);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <nav className="fixed left-0 top-0 z-50 w-screen mx-auto bg-transparent backdrop-blur-sm w-full">
+    <nav className="fixed left-0 top-0 z-50 w-screen mx-auto bg-transparent backdrop-blur-sm">
       <div className="container mx-auto h-16 flex flex-wrap items-center justify-between px-4 py-2">
         <Link href={'/'} className={`text-3xl font-semibold ${textColor}`}>
           Next.js / React 讀書會
         </Link>
+
         <div className="hidden md:block md:w-auto">
           <ul className="mt-0 flex p-4 md:flex-row md:space-x-8 md:p-0">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <Link href={link.path} className={`block rounded-sm py-2 pl-3 pr-4 ${textColor} hover:opacity-70 sm:text-xl md:p-0`}>
+                <Link
+                  href={link.path}
+                  className={`block rounded-sm py-2 pl-3 pr-4 ${textColor} hover:opacity-70 sm:text-xl md:p-0`}
+                >
                   {link.title}
                 </Link>
               </li>
@@ -44,22 +54,27 @@ export default function Navbar() {
         </div>
 
         <div className="block md:hidden">
-          {!navbarOpen ? (
-            <button onClick={() => setNavbarOpen(true)} className={`flex items-center rounded-sm border border-black px-3 py-2 ${textColor}`}>
-              <Icon icon="mdi:menu" className="h-6 w-6" />
-            </button>
-          ) : (
-            <button onClick={() => setNavbarOpen(false)} className={`flex items-center rounded-sm border border-black px-3 py-2 ${textColor}`}>
-              <Icon icon="mdi:close" className="h-6 w-6" />
-            </button>
-          )}
+          <button
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            className={`flex items-center rounded-sm border px-3 py-2 ${textColor}`}
+          >
+            <Icon 
+              icon={navbarOpen ? "mdi:close" : "mdi:menu"} 
+              className="h-6 w-6" 
+            />
+          </button>
         </div>
       </div>
+
       {navbarOpen && (
-        <ul className="flex flex-col items-center py-4">
+        <ul className="flex flex-col items-center py-4 md:hidden">
           {navLinks.map((link, index) => (
             <li key={index}>
-              <Link href={link.path} className={`block rounded-sm py-2 pl-3 pr-4 ${textColor} hover:opacity-70 sm:text-xl md:p-0`}>
+              <Link
+                href={link.path}
+                className={`block rounded-sm py-2 pl-3 pr-4 ${textColor} hover:opacity-70 sm:text-xl md:p-0`}
+                onClick={() => setNavbarOpen(false)}
+              >
                 {link.title}
               </Link>
             </li>
