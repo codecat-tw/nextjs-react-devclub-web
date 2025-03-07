@@ -11,7 +11,6 @@ export default function Home() {
     const [currentSlide, setCurrentSlide] = useState(1);
     // 追踪頁面滾動進度（0-1）
     const [scrollProgress, setScrollProgress] = useState(0);
-    const [isHovered, setIsHovered] = useState(false);
 
     /*
     監聽畫面滾動事件
@@ -146,7 +145,7 @@ export default function Home() {
                                 opacity: getSlideOpacity(3),
                                 transition: 'opacity 0.3s ease-out'
                               }}
-                              className="fixed inset-0 bg-black"
+                              className="inset-0 bg-black"
                             >
                               <div className="absolute inset-0 flex items-center justify-center">
                                 <div className="text-white text-4xl font-bold">
